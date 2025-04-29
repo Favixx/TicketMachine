@@ -43,11 +43,9 @@ class TicketMachine:
         selected_value = menu[selected_key]
 
         if isinstance(selected_value, dict):
-            # Jeśli jesteśmy na poziomie kategorii lub grupy, aktualizuj te zmienne
             if category is None:
                 return self._choose_ticket(selected_value, category=selected_key, group=group)
             else:
                 return self._choose_ticket(selected_value, category=category, group=selected_key)
 
-        # Jeśli to końcowy poziom, zwracamy pełny bilet
         return selected_key, selected_value, category, group
